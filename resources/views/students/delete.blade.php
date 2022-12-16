@@ -2,6 +2,7 @@
 @section('content')
 <div class="container">
     <div class="col-md-12">
+    <h2 class="text-center">学生一覧</h2>
         <table class="table table-bordered table-striped data-table">
             <thead class="align-middle" style="height: 45px;">
                 <tr>
@@ -38,6 +39,7 @@
     $(document).ready(function() {
         $('#alert-success').hide();
         var table = $('.data-table').DataTable({
+            lengthChange: false,
             processing: true,
             serverSide: true,
             ajax: "{{ route('students.delete') }}",

@@ -4,36 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
-use App\Models\User;
 use DataTables;
 
 class StudentController extends Controller
 {
     public function show(Request $request)
     {
-        if ($request->ajax()) {
-            $data = Student::select('roll_no', 'name', 'age', 'created_at')->get();
-            return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('action', function ($row) {
-
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-
-                    return $btn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
         return view('students.view');
     }
-
-    public function search(Request $request)
+    public function studentList()
     {
-        $students = Student::filter($request->all())->get();
-        return response()->json([
-            'students' => $students,
-        ]);
+        $studentQuery = Student::query();
+        $date = (!empty($_GET["date"])) ? ($_GET["date"]) : ('');
+        if ($date) {
+            $date = date('Y-m-d', strtotime($date));
+            $studentQuery->whereRaw("date(students.created_at) = '" . $date  . "'");
+        }
+        $data = $studentQuery->select('id', 'roll_no', 'name', 'age', 'created_at')->get();
+        return datatables()->of($data)
+            ->editColumn('created_at', function ($data) {
+                $formatedDate = ($data->created_at)->format('Y-m-d');
+                return $formatedDate;
+            })
+            ->make(true);
     }
+
     public function add()
     {
         return view('students.add');
@@ -86,12 +81,12 @@ class StudentController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-                    $btn = '<button type="button" name="delete" class="delete btn btn-danger btn-sm" id="' . $data->id . '">Delete</button>';
+                    $btn = '<button type="button" name="delete" class="delete btn btn-danger btn-sm" id="' . $data->id . '"><i class="bi bi-trash3"></i></button>';
 
                     return $btn;
                 })
                 ->editColumn('created_at', function ($data) {
-                    $formatedDate = ( $data->created_at)->format('Y-m-d');
+                    $formatedDate = ($data->created_at)->format('Y-m-d');
                     return $formatedDate;
                 })
                 ->rawColumns(['action'])

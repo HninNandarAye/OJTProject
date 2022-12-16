@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="col-md-5 mx-auto mt-5">
-        <div class="card" style="background-color: #d1e189;">
+        <div class="card" style="background-color: #afda97;">
             <div class="card-header">
                 <h2>Adding Student</h2>
             </div>

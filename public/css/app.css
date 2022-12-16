@@ -31,7 +31,7 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?6959d0d983ee318f88804e407
   text-shadow: 0px -1px 0px #85bb65;
 }
 .nav-bg {
-  background-color: #BABD42;
+  background-color: #77a85b;
 }
 .na {
   background-color: #adbb5d;
@@ -47,7 +47,7 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?6959d0d983ee318f88804e407
 
 #form-btn {
   width: 100px;
-  background-color: #9EB23B;
+  background-color: #6a9650;
   color: white
 }
 
@@ -62,7 +62,7 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?6959d0d983ee318f88804e407
 }
 thead{
   height: 45px;
-  background-color: #bcca7f;
+  background-color: #abdd8d;
 }
 .bi-123::before { content: "\f67f"; }
 .bi-alarm-fill::before { content: "\f101"; }

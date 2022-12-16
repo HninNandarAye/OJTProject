@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'StudentInformationSystem') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -48,7 +48,7 @@
                     @auth
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item ">
-                            <a class="nav-link {{ Request::is('students/add') ? 'active':'';}}" href="{{ url('students/add') }}">Add Student</a>
+                            <a class="nav-link {{ Request::is('students/add') ? 'active':'';}}" href="{{ url('students/add') }}">@lang("public.add")</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link {{ Request::is('students/delete') ? 'active':'';}}" href="{{ url('students/delete') }}">Remove Student</a>
@@ -63,6 +63,20 @@
                     @endauth
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Languages
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{  url('locale/en') }}" >
+                                    {{ __('English') }}
+                                </a> 
+                                <a class="dropdown-item" href="{{  url('locale/jp') }}" >
+                                    {{ __('Japanese') }}
+                                </a>                                 
+                            </div>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}

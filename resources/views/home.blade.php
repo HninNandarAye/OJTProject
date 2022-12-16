@@ -2,20 +2,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+        <div class="col-md-8 mt-5">
+            <h4 class="text-center mb-5" style="color:#6a9650;  text-shadow: 2px 2px 5px #6a9650;">{{ $loginInfo }}</h4>
+            <div class="d-flex justify-content-center">
+            <img src="{{asset('images/logo3.png')}}" alt="" style="width: 300px;height:300px;;">
             </div>
+            
         </div>
     </div>
 </div>

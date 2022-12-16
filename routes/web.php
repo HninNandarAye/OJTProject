@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('students')->middleware(['auth'])->group(function(){
     Route::get('/show',[StudentController::class,'show'])->name('students.show');
+    Route::get('/student-list',[StudentController::class,'studentList']);
     Route::get('/search',[StudentController::class,'search']);
     Route::get('/add',[StudentController::class,'add']);
     Route::post('/add',[StudentController::class,'create']); 
@@ -36,6 +39,8 @@ Route::prefix('students')->middleware(['auth'])->group(function(){
     Route::get('/destroy',[StudentController::class,'destroy']);     
    
 });
+
+Route::get("locale/{language}",[LocalizationController::class,'setLangauge']);
 
 
 
