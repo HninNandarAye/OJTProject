@@ -37,7 +37,7 @@ class StudentController extends Controller
     {
         $validatedData = request()->validate([
             'name' => 'required|regex:/^[A-Za-z0-9 ]+$/u',
-            'roll_no' => 'required|unique:students',
+            'roll_no' => 'required|unique:students|regex:/^([1-5]+)([CS]+)([-]+)([0-9])/',
             'age' => 'required|numeric|min:15|max:35',
         ]);
         $student = new Student();

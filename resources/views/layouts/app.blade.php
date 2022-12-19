@@ -26,18 +26,15 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 
     <!-- data table -->
-    <link href=" https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" crossorigin="anonymous">
-    </script>
-
+    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}" defer></script>
 </head>
-
 <body class="body-bg">
     <div id="app">
         <nav class="navbar navbar-expand-md nav-bg shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                @lang("public.title")
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -51,30 +48,30 @@
                             <a class="nav-link {{ Request::is('students/add') ? 'active':'';}}" href="{{ url('students/add') }}">@lang("public.add")</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link {{ Request::is('students/delete') ? 'active':'';}}" href="{{ url('students/delete') }}">Remove Student</a>
+                            <a class="nav-link {{ Request::is('students/delete') ? 'active':'';}}" href="{{ url('students/delete') }}">@lang("public.remove")</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('students/update') ? 'active':'';}}" href="{{ url('students/update') }}">Update Student</a>
+                            <a class="nav-link {{ Request::is('students/update') ? 'active':'';}}" href="{{ url('students/update') }}">@lang("public.update")</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('students/show') ? 'active':'';}}" href="{{ url('students/show') }}">View Student</a>
+                            <a class="nav-link {{ Request::is('students/show') ? 'active':'';}}" href="{{ url('students/show') }}">@lang("public.view")</a>
                         </li>
                     </ul>
                     @endauth
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Languages
+                                @lang("public.language")
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{  url('locale/en') }}" >
-                                    {{ __('English') }}
-                                </a> 
-                                <a class="dropdown-item" href="{{  url('locale/jp') }}" >
-                                    {{ __('Japanese') }}
-                                </a>                                 
+                                <a class="dropdown-item" href="{{  url('locale/en') }}">
+                                    @lang("public.en")
+                                </a>
+                                <a class="dropdown-item" href="{{  url('locale/jp') }}">
+                                    @lang("public.jp")
+                                </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -85,7 +82,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    @lang("public.logout")
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

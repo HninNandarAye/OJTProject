@@ -2,16 +2,16 @@
 @section('content')
 <div class="container">
     <div class="col-md-12">
-    <h2 class="text-center">学生一覧</h2>
+        <h2 class="text-center">@lang("public.view")</h2>
         <table class="table table-bordered table-striped data-table">
             <thead class="align-middle" style="height: 45px;">
                 <tr>
-                    <th>No</th>
-                    <th>Roll No</th>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Registered Date</th>
-                    <th>Delete</th>
+                    <th>@lang("public.no")</th>
+                    <th>@lang("public.roll-no")</th>
+                    <th>@lang("public.name")</th>
+                    <th>@lang("public.age")</th>
+                    <th>@lang("public.registered-date")</th>
+                    <th>@lang("public.delete")</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,12 +24,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{_("Student Delete") }}</h5>
+                <h5 class="modal-title">@lang("public.modal-title")</h5>
             </div>
-            <div class="modal-body">You sure you want to delete ?</div>
+            <div class="modal-body">@lang("public.modal-body")</div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="btndelete" class="btn btn-danger">{{_("Yes")}}</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang("public.btnclose")</button>
+                <button type="button" id="btndelete" class="btn btn-danger">@lang("public.btnyes")</button>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
 <script>
     $(document).ready(function() {
         $('#alert-success').hide();
-        var table = $('.data-table').DataTable({
+        var table = $('.data-table').DataTable({           
             lengthChange: false,
             processing: true,
             serverSide: true,

@@ -2,22 +2,22 @@
 @section('content')
 <div class="container">
     <div class="col-md-12">
-        <h2 class="text-center">学生一覧</h2>
+        <h2 class="text-center">@lang("public.student-list")</h2>
         <div class="d-flex justify-content-end mb-3">
             <div class="row">                
                 <div class="col-md-12">
-                    <input type="text" name="date" id="date" class="form-control" placeholder="select date">
+                    <input type="text" name="date" id="date" class="form-control" placeholder="@lang('public.select-date')">
                 </div>
             </div>
         </div>
         <table class="table table-bordered table-striped" id="student-table">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Roll No</th>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Registered Date</th>
+                    <th>@lang("public.no")</th>
+                    <th>@lang("public.roll-no")</th>
+                    <th>@lang("public.name")</th>
+                    <th>@lang("public.age")</th>
+                    <th>@lang("public.registered-date")</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +32,7 @@
         $("#date").datepicker({
             dateFormat: "yy-mm-dd",
         });
+        
         $('#student-table').DataTable({
             searching: false,
             lengthChange: false,
@@ -72,8 +73,7 @@
         });
     });
 
-    $(document).on('change', '#date', function() {
-        console.log()
+    $(document).on('change', '#date', function() {               
         $('#student-table').DataTable().draw(true);
     });
 </script>

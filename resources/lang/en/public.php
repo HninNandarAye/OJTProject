@@ -1,5 +1,35 @@
 <?php 
 return [
+'title' => 'Student Information System',
 'add' => 'Add Student',
+'remove' => 'Remove Student',
+'update' => 'Update Student',
+'view'=> 'View Student',
+'language' => 'Languages',
+'jp' => 'Japanese',
+'en' => 'English',
+'welcome' => 'Welcome',
+'welcome-again' => 'Welcome Again',
+'logout' => 'Logout',
+//for add and update page
+'add-title' => 'Adding Student',
+'update-title' => 'Updating Student',
+'name' => 'Name',
+'roll-no' => 'Roll No',
+'age' => 'Age',
+'btnadd' => 'Add',
+'btncancel' => 'Cancel',
+'btnupdate' => 'Update',
+'select-rollno' => 'Select Roll No',
+//for delete and view page
+'student-list' => 'Student List',
+'select-date' => 'Select Date',
+'no' => 'No',
+'registered-date' => 'Registered Date',
+'delete' => 'Delete',
+'modal-title' => 'Student Delete',
+'modal-body' => 'You sure you want to delete?',
+'btnclose' => 'Close',
+'btnyes' => 'Yes',
 ];
 ?>
