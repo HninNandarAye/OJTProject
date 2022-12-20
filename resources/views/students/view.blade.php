@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <h2 class="text-center">@lang("public.student-list")</h2>
         <div class="d-flex justify-content-end mb-3">
-            <div class="row">                
+            <div class="row">
                 <div class="col-md-12">
                     <input type="text" name="date" id="date" class="form-control" placeholder="@lang('public.select-date')">
                 </div>
@@ -32,12 +32,24 @@
         $("#date").datepicker({
             dateFormat: "yy-mm-dd",
         });
-        
+
         $('#student-table').DataTable({
             searching: false,
             lengthChange: false,
             processing: true,
             serverSide: true,
+            language: {                
+                "info": "{{ __('public.info') }}",
+                "infoEmpty": "{{ __('public.infoEmpty') }}",
+                "emptyTable": "{{ __('public.emptyTable') }}",
+                
+                "paginate": {
+                    "first": "{{ __('public.first') }}",
+                    "last": "{{ __('public.last') }}",
+                    "next": "{{ __('public.next') }}",
+                    "previous": "{{ __('public.previous') }}"
+                },
+            },
             ajax: {
                 url: "{{ url('/students/student-list') }}",
                 type: 'GET',
@@ -73,7 +85,7 @@
         });
     });
 
-    $(document).on('change', '#date', function() {               
+    $(document).on('change', '#date', function() {
         $('#student-table').DataTable().draw(true);
     });
 </script>

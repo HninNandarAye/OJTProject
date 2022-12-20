@@ -23,7 +23,7 @@ class LocalizationMiddleware
             App::setlocale(Session::get("locale"));
         }
         else{
-            Session::put("locale","en");
+            Session::put("locale","jp");
             App::setlocale(Session::get("locale"));
         }
         return $next($request);

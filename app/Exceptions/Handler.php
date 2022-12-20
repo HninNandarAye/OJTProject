@@ -38,13 +38,16 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
-        $this->renderable(function (Throwable $e, $request) {
-            if ($e instanceof \Illuminate\Database\QueryException) {
-                return view('dberror');
-                //return response()->view('custom_view');
-            } elseif ($e instanceof \PDOException) {
-                return view('dberror');
-                //return response()->view('custom_view');
+        $this->renderable(function (Throwable $e) {
+            //check session timeout when button is clicked
+            if ($e->getPrevious() instanceof \Illuminate\Session\TokenMismatchException) {
+                return redirect()->route('login');
+            }
+            //check db connection
+            if ($e instanceof \Illuminate\Database\QueryException) {                
+                return response()->view('dberror');
+            } elseif ($e instanceof \PDOException) {               
+                return response()->view('dberror');
             }
         });
     }

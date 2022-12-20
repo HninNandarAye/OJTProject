@@ -31,5 +31,32 @@ return [
 'modal-body' => 'You sure you want to delete?',
 'btnclose' => 'Close',
 'btnyes' => 'Yes',
+//for datatable
+"emptyTable"=> "No data available in table",
+"info"=> "Showing _START_ to _END_ of _TOTAL_ entries",
+"infoEmpty"=> "Showing 0 to 0 of 0 entries",
+"infoFiltered"=> "(filtered from _MAX_ total entries)",
+"infoThousands"=> ",",
+"lengthMenu"=> "Show _MENU_ entries",
+"loadingRecords"=> "Loading...",
+"processing"=> "Processing...",
+"search"=> "Search:",
+"zeroRecords"=> "No matching records found",
+"thousands"=> ",",
+"first"=> "First",
+"last"=> "Last",
+"next"=> "Next",
+"previous"=> "Previous",
+ //for sweet alert box of add page
+ 'add-alert' => 'You have successfully registered.',
+ //for sweet alert box of update page
+ 'update-alert' => 'You have successfully updated.',
+ //for db error
+ 'db-error'=> 'System error. Please try later.',
+ //for login form
+ 'email' => 'Email',
+ 'password' => 'Password',
+ 'login' => 'Login',
+ 'forget-password' => 'Forgot Your Password',
 ];
 ?>

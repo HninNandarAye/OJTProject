@@ -38,10 +38,24 @@
 <script>
     $(document).ready(function() {
         $('#alert-success').hide();
-        var table = $('.data-table').DataTable({           
+        var table = $('.data-table').DataTable({
             lengthChange: false,
             processing: true,
             serverSide: true,
+            language: {
+                "search": "{{ __('public.search') }}",
+                "info": "{{ __('public.info') }}",
+                "infoEmpty": "{{ __('public.infoEmpty') }}",                
+                "emptyTable": "{{ __('public.emptyTable') }}",
+                "infoFiltered": "{{ __('public.infoFiltered') }}",
+                "zeroRecords": "{{__('public.zeroRecords') }}",
+                "paginate": {
+                    "first": "{{ __('public.first') }}",
+                    "last": "{{ __('public.last') }}",
+                    "next": "{{ __('public.next') }}",
+                    "previous": "{{ __('public.previous') }}"
+                },
+            },
             ajax: "{{ route('students.delete') }}",
             columns: [{
                     data: 'SrNo',

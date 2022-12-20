@@ -160,7 +160,7 @@ return [
 
     'attributes' => [
         'name'=> '名前',
-        'roll_no'=> '学生証番号',
+        'roll_no'=> 'ロール番号',
         'age'=>'年齢',
         'email'=>'メールアドレス',
         'password' => 'パスワード',

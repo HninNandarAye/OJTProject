@@ -51,7 +51,7 @@
 @if(session('updateinfo'))
 <script>
     swal({
-        title: "正常に登録しました。",
+        title: "{{ __('public.update-alert') }}",
         icon: "success"
     }).then(function() {
         window.location.href = "{{ url('/students/show') }}";

@@ -43,7 +43,7 @@
 @if(session('insertinfo'))
 <script>
     swal({
-        title: "正常に登録しました。",
+        title: "{{ __('public.add-alert') }}",
         icon: "success"
     }).then(function() {
         window.location.href = "{{ url('/students/show') }}";

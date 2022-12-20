@@ -33,5 +33,29 @@ return [
     'modal-body' => '本当に削除しますか?',
     'btnclose' => 'いいえ',
     'btnyes' => 'はい',
-
+    //for datatable
+    "emptyTable" => "テーブルにデータがありません。",
+    "info" => " _TOTAL_ 件中 _START_ から _END_ まで表示",
+    "infoEmpty" => " 0 件中 0 から 0 まで表示",
+    "infoFiltered" => "（全 _MAX_ 件より抽出）",
+    "infoThousands" => ",",
+    "lengthMenu" => "_MENU_ 件表示",
+    "loadingRecords" => "読み込み中...",
+    "processing" => "処理中...",
+    "search" => "検索:",
+    "zeroRecords" => "一致するレコードがありません。",
+    "first" => "先頭",
+    "last" => "最終",
+    "next" => "次へ",
+    "previous" => "前へ",
+    //for sweet alert box of add page
+    'add-alert' => '正常に登録しました。',
+    //for sweet alert box of update page
+    'update-alert' => '正常に更新されました。',
+    'db-error' => 'システムエラーです。後で試してください。',
+    //for login form
+    'email' => 'メールアドレス',
+    'password' => 'パスワード',
+    'login' => 'ログイン',
+    'forget-password' => 'パスワードをお忘れですか？',
 ];
