@@ -31,7 +31,7 @@ return [
         'array' => 'The :attribute must have between :min and :max items.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
+    'confirmed' => ':attributeパスワードの確認が一致しません。',
     'current_password' => 'The password is incorrect.',
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
@@ -125,10 +125,13 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => ':attribute は既に取得されています。',
+    'unique' => ':attributeは既に取得されています。',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'alpha_spaces'=> '正しい:attributeを入力してください。',
+    'rollno_pattern' => ':attribute特殊文字を入力しないでください。(例　XCS-X または　XCT-X)',
+
 
     /*
     |--------------------------------------------------------------------------

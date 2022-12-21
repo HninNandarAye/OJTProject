@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $('.roll_no').select2({
+        theme: 'bootstrap-5'
+    });
     $("#roll_no").on('change', function () {
         var roll_no = $("#roll_no").val();
         if (roll_no == "") {

@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Validator;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -24,5 +26,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+        Validator::extend('alpha_spaces', function ($attribute, $value) {
+            return preg_match('/^(\w+\s)*\w+$/u', $value);
+        });
+        Validator::extend('rollno_pattern', function ($attribute, $value) {
+            return preg_match('/^([1-5]+)([CS|CT]+)([-]+)([0-9]{1,4})$/', $value);
+        });
     }
 }

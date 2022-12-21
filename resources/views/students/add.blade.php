@@ -40,13 +40,15 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- to show successful alert box -->
 @if(session('insertinfo'))
 <script>
     swal({
         title: "{{ __('public.add-alert') }}",
         icon: "success"
     }).then(function() {
-        window.location.href = "{{ url('/students/show') }}";
+        window.location.href = "{{ url('/students/view') }}";
     });
 </script>
 @endif

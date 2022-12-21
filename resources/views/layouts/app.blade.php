@@ -4,11 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- System Logo -->
+    <link rel="icon" href="../images/image1.webp">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'StudentInformationSystem') }}</title>
+    <title>@lang("public.title")</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -20,21 +22,20 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-
     <!-- data table -->
-    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}" defer></script>
+    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">   
+
+    <!-- select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 </head>
+
 <body class="body-bg">
     <div id="app">
         <nav class="navbar navbar-expand-md nav-bg shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                @lang("public.title")
+                    @lang("public.title")
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -54,7 +55,7 @@
                             <a class="nav-link {{ Request::is('students/update') ? 'active':'';}}" href="{{ url('students/update') }}">@lang("public.update")</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('students/show') ? 'active':'';}}" href="{{ url('students/show') }}">@lang("public.view")</a>
+                            <a class="nav-link {{ Request::is('students/view') ? 'active':'';}}" href="{{ url('students/view') }}">@lang("public.view")</a>
                         </li>
                     </ul>
                     @endauth
@@ -100,7 +101,8 @@
             @yield('content')
         </main>
     </div>
-
+   
+    
 </body>
 
 </html>

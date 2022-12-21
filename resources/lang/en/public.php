@@ -31,6 +31,7 @@ return [
 'modal-body' => 'You sure you want to delete?',
 'btnclose' => 'Close',
 'btnyes' => 'Yes',
+'deleting' => 'Deleting',
 //for datatable
 "emptyTable"=> "No data available in table",
 "info"=> "Showing _START_ to _END_ of _TOTAL_ entries",
@@ -56,7 +57,9 @@ return [
  //for login form
  'email' => 'Email',
  'password' => 'Password',
+ 'confirm-password' => 'Confirm Password',
  'login' => 'Login',
+ 'register' => 'registration',
  'forget-password' => 'Forgot Your Password',
 ];
 ?>

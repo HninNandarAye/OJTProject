@@ -33,6 +33,7 @@ return [
     'modal-body' => '本当に削除しますか?',
     'btnclose' => 'いいえ',
     'btnyes' => 'はい',
+    'deleting' => '削除している',
     //for datatable
     "emptyTable" => "テーブルにデータがありません。",
     "info" => " _TOTAL_ 件中 _START_ から _END_ まで表示",
@@ -56,6 +57,9 @@ return [
     //for login form
     'email' => 'メールアドレス',
     'password' => 'パスワード',
+    'confirm-password' => 'パスワードの確認',
     'login' => 'ログイン',
+    'register' => '登録',
     'forget-password' => 'パスワードをお忘れですか？',
+    
 ];

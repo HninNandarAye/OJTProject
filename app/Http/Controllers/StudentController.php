@@ -8,10 +8,13 @@ use DataTables;
 
 class StudentController extends Controller
 {
-    public function show(Request $request)
+    //this method is to view Student for view page
+    public function viewStudents(Request $request)
     {
         return view('students.view');
     }
+
+    //this method is to search and draw students according to date
     public function studentList()
     {
         $studentQuery = Student::query();
@@ -29,18 +32,21 @@ class StudentController extends Controller
             ->make(true);
     }
 
+    //this method to load add student page
     public function add()
     {
         return view('students.add');
     }
-    public function create()
+
+    //this method is to add new student to db
+    public function createNewStudent()
     {
         $validatedData = request()->validate([
-            'name' => 'required|regex:/^[A-Za-z0-9 ]+$/u',
-            'roll_no' => array('required','unique:students','regex:/^(([1-5]+)([CS]+)([-]+)([0-9]{1,4}))|(([1-5]+)([CT]+)([-]+)([0-9]{1,4}))$/'),
-            'age' => 'required|numeric|min:15|max:35',
+            'name' => ['required', 'alpha_spaces'],
+            'roll_no' => ['required', 'unique:students', 'rollno_pattern'],
+            'age' => ['required', 'numeric', 'min:15', 'max:35'],
         ]);
-        
+
         $student = new Student();
         $student->name = request()->name;
         $student->roll_no = request()->roll_no;
@@ -48,11 +54,15 @@ class StudentController extends Controller
         $student->save();
         return redirect('/students/add')->with('insertinfo', 'Student inserted');
     }
-    public function showData()
+
+    //this method is to draw data from db to show student roll no in select box
+    public function showStudentRollNo()
     {
         $student = Student::All();
         return view('students.update', ['students' => $student]);
     }
+
+    //this method is to search student by roll no
     public function studentByRollNo(Request $request)
     {
         $student = Student::filter($request->all())->get();
@@ -60,12 +70,14 @@ class StudentController extends Controller
             'student' => $student,
         ]);
     }
-    public function edit(Request $request)
+
+    //this metho is to update student data
+    public function editStudent(Request $request)
     {
         $validatedData = request()->validate([
-            'name' => 'required|regex:/^[A-Za-z0-9 ]+$/u',
-            'roll_no' => 'required',
-            'age' => 'required|numeric|min:15|max:35',
+            'name' => ['required', 'alpha_spaces'],
+            'roll_no' => ['required', 'rollno_pattern'],
+            'age' => ['required', 'numeric', 'min:15', 'max:35'],
         ]);
         $student = Student::find($request->id);
         $student->name = $request->input('name');
@@ -74,8 +86,8 @@ class StudentController extends Controller
         return redirect('/students/update')->with('updateinfo', 'Student updated');
     }
 
-
-    public function delete(Request $request)
+    //this method is draw data from db to delete students
+    public function viewStudentToDelete(Request $request)
     {
         if ($request->ajax()) {
             $data = Student::select('id', 'roll_no', 'name', 'age', 'created_at')->get();
@@ -95,7 +107,9 @@ class StudentController extends Controller
         }
         return view('students.delete');
     }
-    public function destroy(Request $request)
+
+    //this method is to delete student
+    public function destroyStudent(Request $request)
     {
         $student = Student::find($request->id);
         $student->delete();

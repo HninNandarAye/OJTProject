@@ -27,16 +27,15 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('students')->middleware(['auth'])->group(function(){
-    Route::get('/show',[StudentController::class,'show'])->name('students.show');
-    Route::get('/student-list',[StudentController::class,'studentList']);
-    Route::get('/search',[StudentController::class,'search']);
+    Route::get('/view',[StudentController::class,'viewStudents'])->name('students.view');
+    Route::get('/student-list',[StudentController::class,'studentList']);   
     Route::get('/add',[StudentController::class,'add']);
-    Route::post('/add',[StudentController::class,'create']); 
-    Route::get('/update',[StudentController::class,'showData']); 
+    Route::post('/add',[StudentController::class,'createNewStudent']); 
+    Route::get('/update',[StudentController::class,'showStudentRollNo']); 
     Route::get('/select',[StudentController::class,'studentByRollNo']);
-    Route::patch('/edit',[StudentController::class,'edit']);
-    Route::get('/delete',[StudentController::class,'delete'])->name('students.delete');
-    Route::get('/destroy',[StudentController::class,'destroy']);     
+    Route::patch('/edit',[StudentController::class,'editStudent']);
+    Route::get('/delete',[StudentController::class,'viewStudentToDelete'])->name('students.delete');
+    Route::get('/destroy',[StudentController::class,'destroyStudent']);     
    
 });
 

@@ -20,6 +20,7 @@
     </div>
 </div>
 
+<!-- this is delete modal confirm box -->
 <div class="modal fade" id="ModalDelete" tabindex="-1" role="idalog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -34,10 +35,11 @@
         </div>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 <script>
-    $(document).ready(function() {
-        $('#alert-success').hide();
+    $(document).ready(function() {        
         var table = $('.data-table').DataTable({
             lengthChange: false,
             processing: true,
@@ -92,7 +94,7 @@
                 },
             ]
         });
-        $("[name='table_length']").addClass("mb-4");
+        
         var id;
         $(document).on('click', '.delete', function() {
             id = $(this).attr('id');
@@ -108,12 +110,12 @@
                 },
                 dataType: "json",
                 beforeSend: function() {
-                    $('#btndelete').text('Deleting...');
+                    $('#btndelete').text("{{ __('public.deleting') }}");
                 },
                 success: function(data) {
                     $('#btndelete').text('Yes');
                     $('#ModalDelete').modal('hide');
-                    window.location.href = "{{ route('students.show')}}";
+                    window.location.href = "{{ route('students.view')}}";
                 }
             });
         });

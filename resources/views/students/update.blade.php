@@ -12,7 +12,7 @@
                 <div class="mb-3">
                     <input type="hidden" name="id" id="id" value="{{ old('id') }}">
                     <label>@lang("public.roll-no")</label>
-                    <select id="roll_no" name="roll_no" class="form-select">
+                    <select id="roll_no" name="roll_no" class="roll_no form-select">
                         <option value="" name="roll_no">@lang("public.select-rollno")</option>
                         @foreach($students as $student)
                         <option name="roll_no" value={{ $student->roll_no }}  {{ $student->roll_no ==old('roll_no') ? 'selected': '' }}>{{$student->roll_no}}</option>
@@ -45,16 +45,18 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="{{ asset('js/studentByRollNo.js') }}" defer></script>
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="{{ asset('js/studentByRollNo.js') }}" ></script>
+
+<!-- this is update successful alert box -->
 @if(session('updateinfo'))
 <script>
     swal({
         title: "{{ __('public.update-alert') }}",
         icon: "success"
     }).then(function() {
-        window.location.href = "{{ url('/students/show') }}";
+        window.location.href = "{{ url('/students/view') }}";
     });
 </script>@endif
 @endsection

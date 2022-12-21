@@ -129,6 +129,8 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    "alpha_spaces"=> "The :attribute may only contain letters and spaces.",
+    'rollno_pattern' => 'The :attribute format is invalid.(eg. XCS-X or XCT-X)',
 
     /*
     |--------------------------------------------------------------------------
@@ -158,6 +160,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name'=> 'name',
+        'roll_no'=> 'roll number',
+        'age'=>'age',
+        'email'=>'email',
+        'password' => 'password',
+
+    ],
 
 ];
