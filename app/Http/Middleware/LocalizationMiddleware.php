@@ -26,6 +26,7 @@ class LocalizationMiddleware
             Session::put("locale","jp");
             App::setlocale(Session::get("locale"));
         }
+        
         return $next($request);
     }
 }

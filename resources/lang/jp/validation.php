@@ -131,6 +131,7 @@ return [
     'uuid' => 'The :attribute must be a valid UUID.',
     'alpha_spaces'=> '正しい:attributeを入力してください。',
     'rollno_pattern' => ':attribute特殊文字を入力しないでください。(例　XCS-X または　XCT-X)',
+    'study_year_pattern' => ':attribute特殊文字を入力しないでください(例 20XX)',
 
 
     /*
@@ -167,6 +168,7 @@ return [
         'age'=>'年齢',
         'email'=>'メールアドレス',
         'password' => 'パスワード',
+        'study_year' => '学年',
 
     ],
 

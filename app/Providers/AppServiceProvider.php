@@ -32,5 +32,8 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('rollno_pattern', function ($attribute, $value) {
             return preg_match('/^([1-5]+)([CS|CT]+)([-]+)([0-9]{1,4})$/', $value);
         });
+        Validator::extend('study_year_pattern', function($attribute, $value){
+            return preg_match('/^20[0-9]{2}$/',$value);
+        });
     }
 }

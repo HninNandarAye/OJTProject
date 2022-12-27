@@ -32,9 +32,9 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
-    public function register()    
+    public function register()
     {
-        
+
         $this->reportable(function (Throwable $e) {
             //
         });
@@ -43,11 +43,13 @@ class Handler extends ExceptionHandler
             if ($e->getPrevious() instanceof \Illuminate\Session\TokenMismatchException) {
                 return redirect()->route('login');
             }
+            //check query exception
+            if ($e instanceof \Illuminate\Database\QueryException) {
+                return redirect()->route('server-error');
+            }
             //check db connection
-            if ($e instanceof \Illuminate\Database\QueryException) {                
-                return response()->view('dberror');
-            } elseif ($e instanceof \PDOException) {               
-                return response()->view('dberror');
+            elseif ($e instanceof \PDOException) {
+                return redirect()->route('server-error');
             }
         });
     }

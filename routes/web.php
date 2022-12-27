@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -27,19 +23,20 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('students')->middleware(['auth'])->group(function(){
-    Route::get('/view',[StudentController::class,'viewStudents'])->name('students.view');
-    Route::get('/student-list',[StudentController::class,'studentList']);   
-    Route::get('/add',[StudentController::class,'add']);
+    Route::get('/view',[StudentController::class,'viewStudents']);
+    Route::get('/student-list',[StudentController::class,'getStudentListByDate']);   
+    Route::get('/add',[StudentController::class,'uploadAddForm']);
     Route::post('/add',[StudentController::class,'createNewStudent']); 
-    Route::get('/update',[StudentController::class,'showStudentRollNo']); 
-    Route::get('/select',[StudentController::class,'studentByRollNo']);
+    Route::get('/update',[StudentController::class,'uploadUpdateForm']); 
+    Route::get('/select/roll_no',[StudentController::class,'rollNoByYear']);
+    Route::get('/select/student_info',[StudentController::class,'getstudentByRollNo']);
     Route::patch('/edit',[StudentController::class,'editStudent']);
-    Route::get('/delete',[StudentController::class,'viewStudentToDelete'])->name('students.delete');
-    Route::get('/destroy',[StudentController::class,'destroyStudent']);     
+    Route::get('/delete',[StudentController::class,'getStudentListToDelete']);
+    Route::get('/destroy',[StudentController::class,'destroyStudent']);   
    
 });
 
 Route::get("locale/{language}",[LocalizationController::class,'setLangauge']);
 
-
+Route::get('/server-error', function () {return view('dberror');})->name('server-error');
 

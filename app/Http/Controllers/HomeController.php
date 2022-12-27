@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -25,11 +26,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->cookie("loginID" . Auth::user()->id)) {
+        if ($request->cookie("loginID" . Auth::user()->id)) {            
             return view('home', ['loginInfo' => Lang::get('public.welcome-again')]);
         } else {
             $response = new Response(view('home', ['loginInfo' => Lang::get('public.welcome')]));
             $response->withCookie(cookie()->forever("loginID" . Auth::user()->id, 'value' . Auth::user()->id));
+            
             return $response;
         }
     }

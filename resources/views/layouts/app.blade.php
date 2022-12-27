@@ -13,7 +13,7 @@
     <title>@lang("public.title")</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>   
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,8 +22,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+    
     <!-- data table -->
-    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">   
+    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}"> 
+    
+    <!-- year picker -->   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
 
     <!-- select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -60,10 +64,20 @@
                     </ul>
                     @endauth
                     <!-- Right Side Of Navbar -->
+                    @php $locale = session()->get('locale'); @endphp
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                @lang("public.language")
+                            @switch($locale)
+                                        @case('en')
+                                            <img src="{{ asset('images/british.png') }}" width="25px"> @lang("public.en")
+                                        @break
+                                        @case('jp')
+                                            <img src="{{ asset('images/nihon.png') }}" width="25px"> @lang("public.jp")
+                                        @break
+                                        @default
+                                            <img src="{{ asset('images/nihon.png') }}" width="25px"> @lang("public.jp")
+                                    @endswitch
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

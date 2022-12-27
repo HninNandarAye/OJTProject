@@ -18,7 +18,9 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('roll_no');
             $table->integer('age');
+            $table->string('study_year');
             $table->timestamps();
+            $table->unique('roll_no','study_year');
         });
     }
 

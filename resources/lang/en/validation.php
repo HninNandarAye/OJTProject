@@ -131,6 +131,7 @@ return [
     'uuid' => 'The :attribute must be a valid UUID.',
     "alpha_spaces"=> "The :attribute may only contain letters and spaces.",
     'rollno_pattern' => 'The :attribute format is invalid.(eg. XCS-X or XCT-X)',
+    'study_year_pattern' => 'The :attribute format is invalid.(eg. 20XX)',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +167,7 @@ return [
         'age'=>'age',
         'email'=>'email',
         'password' => 'password',
+        'study_year' => 'study year',
 
     ],
 
